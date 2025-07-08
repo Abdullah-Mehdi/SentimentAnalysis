@@ -1,6 +1,6 @@
 # Preface
 
-Originally this was a task assigned to me for an employment opportunity. I've since decided to revamp this project into a more modern approach, and focused primarily on trying to explain what this is and how it works - serving as a more educational resource for anybody interested in such topics (note that I am a beginner myself).
+Originally this was a task assigned to me for an employment opportunity. I've since decided to revamp this project into a modern approach, and focused primarily on trying to explain what this is and how it works - serving as a more educational resource for anybody interested in such topics (note that I am a beginner).
 
 # Hotel Review Sentiment Analysis
 
@@ -111,7 +111,9 @@ SentimentAnalysis/
 ├── 📄 DataPreprocess.py       # Main preprocessing pipeline
 ├── 🎯 example_usage.py        # Usage demonstration
 ├── 📈 analyze_ratings.py      # Data distribution analysis
-├── 📋 requirements.txt        # Python dependencies
+├── �️ sentiment_gui.py        # Interactive GUI application
+├── 🚀 launch_gui.py           # GUI launcher script
+├── �📋 requirements.txt        # Python dependencies
 ├── 📊 booking_reviews copy.csv # Hotel reviews dataset
 └── 📖 README.md               # This documentation
 ```
@@ -126,27 +128,56 @@ Modern object-oriented preprocessing pipeline featuring:
 - **Robust error handling** and validation
 - **Professional logging** and type hints
 
-#### 2. **example_usage.py** - Quick Start Demo
+#### 2. **sentiment_gui.py** - Interactive GUI Application 🆕
+User-friendly graphical interface featuring:
+- **Real-time sentiment analysis** with confidence scores
+- **Detailed explanations** of why text was classified as positive/negative
+- **Interactive model training** with progress indicators
+- **Example reviews** to test the system
+- **Model performance metrics** and statistics
+- **Custom data loading** for your own CSV files
+
+#### 3. **example_usage.py** - Quick Start Demo
 Interactive demonstration showing:
 - Complete preprocessing workflow
 - Sample output and statistics
 - Performance metrics
 - Ready-to-use ML data
 
-#### 3. **analyze_ratings.py** - Data Exploration
+#### 4. **analyze_ratings.py** - Data Exploration
 Comprehensive analysis tool for:
 - Rating distribution visualization
 - Column structure examination
 - Data quality assessment
 - Statistical summaries
 
+#### 5. **demo_gui.py** - GUI Features Preview
+Demonstration script showing:
+- GUI capabilities overview
+- Feature explanations
+- Example analysis output
+- Perfect for headless environments
+
 ## 🚀 Quick Start
 
-### Installation
+### GUI Application (Recommended)
 ```bash
 # Install dependencies
 pip install -r requirements.txt
 
+# Launch the interactive GUI
+python launch_gui.py
+```
+
+The GUI provides:
+- 🎯 **Interactive Analysis**: Type any hotel review and get instant sentiment analysis
+- 🧠 **AI Explanations**: Detailed breakdown of why the AI made its decision
+- 📊 **Model Training**: Train the AI model on your data with progress tracking
+- 📈 **Performance Metrics**: See how well the model performs
+- 💡 **Example Reviews**: Try pre-loaded examples to see how it works
+
+### Command Line Usage
+```bash
 # Run the complete analysis
 python example_usage.py
 
@@ -154,7 +185,7 @@ python example_usage.py
 python analyze_ratings.py
 ```
 
-### Basic Usage
+### Programming Interface
 ```python
 from DataPreprocess import ReviewDataPreprocessor
 
@@ -167,7 +198,71 @@ print(f"Dataset: {len(X)} reviews")
 print(f"Positive sentiment: {y.mean():.1%}")
 ```
 
-## 🔧 Technical Features
+## �️ Interactive GUI Features
+
+The sentiment analysis GUI provides a comprehensive, user-friendly interface for analyzing hotel reviews with detailed explanations.
+
+### 🎯 Key GUI Features
+
+#### **1. Intelligent Sentiment Analysis**
+- **Real-time Analysis**: Type any hotel review and get instant sentiment classification
+- **Confidence Scores**: See how confident the AI is in its prediction (0-100%)
+- **Visual Results**: Clear positive/negative indicators with color coding
+
+#### **2. AI Explanation System** 
+- **Word-level Analysis**: See which specific words influenced the decision
+- **Impact Scores**: Understand how much each word contributed to the final sentiment
+- **Model Transparency**: Detailed breakdown of the AI's decision-making process
+
+#### **3. Interactive Model Training**
+- **One-click Training**: Train the AI model on 26,000+ hotel reviews
+- **Progress Tracking**: Real-time progress bar during model training
+- **Performance Metrics**: See accuracy, precision, recall, and confusion matrix
+- **Custom Data**: Load your own CSV files for analysis
+
+#### **4. Example Reviews & Testing**
+- **Pre-loaded Examples**: Try positive, negative, and neutral review samples
+- **Custom Input**: Analyze any hotel review text you want to test
+- **Processed Text View**: See how the AI cleans and processes your input
+
+#### **5. Educational Value**
+- **Step-by-step Explanations**: Learn how sentiment analysis works
+- **Feature Importance**: Understand which words matter most
+- **Model Architecture**: See the technical details behind the predictions
+
+### 📱 GUI Screenshots & Workflow
+
+```
+🖥️ Main Interface Layout:
+├── 🎛️ Control Panel: Train model, load data, view status
+├── ✍️ Input Section: Enter reviews, load examples
+├── 📊 Analysis Tab: Sentiment results and confidence
+├── 🧠 Explanation Tab: Why this sentiment? (Word analysis)
+└── 📈 Model Info Tab: Performance metrics and details
+```
+
+### 🎓 How the Explanation System Works
+
+When you analyze a review, the GUI shows:
+
+1. **Overall Sentiment**: Positive or Negative with confidence percentage
+2. **Key Influencing Words**: 
+   - ✅ Words that made it seem positive (e.g., "excellent", "friendly", "clean")
+   - ❌ Words that made it seem negative (e.g., "terrible", "dirty", "rude")
+3. **Impact Scores**: Numerical values showing how much each word mattered
+4. **Processing Steps**: How the raw text was cleaned and prepared
+5. **Model Details**: Technical information about the AI algorithm
+
+### 💡 Example Analysis
+
+**Input Review**: "The hotel was absolutely fantastic! Great location and friendly staff."
+
+**AI Analysis**:
+- 😊 **Sentiment**: POSITIVE (89.2% confidence)
+- ✅ **Key Positive Words**: "fantastic" (+0.245), "great" (+0.156), "friendly" (+0.134)
+- 🧠 **Explanation**: The model detected strong positive language with words like "fantastic" and "great" that are highly associated with positive hotel experiences in the training data.
+
+## �🔧 Technical Features
 
 ### Modern Python Architecture
 - **Object-Oriented Design**: Clean, maintainable class structure
@@ -243,6 +338,17 @@ X_vectorized = vectorizer.fit_transform(X_train)
 | Column not found | Use `analyze_ratings.py` to check structure |
 | Memory issues | Process data in chunks for large datasets |
 | Encoding errors | Ensure CSV is UTF-8 encoded |
+
+### GUI-Specific Issues
+
+**Problem**: "GUI won't launch on remote server"  
+**Solution**: The GUI requires a graphical display. Use the command-line tools instead: `python example_usage.py`
+
+**Problem**: "Model training takes too long"  
+**Solution**: Training on 26,000 reviews takes 30-60 seconds on modern hardware. The progress bar shows activity.
+
+**Problem**: "Analysis seems inaccurate"  
+**Solution**: Remember the model is trained on hotel reviews specifically and may not work well for other domains. myself).
 
 ## 📝 Dependencies
 
