@@ -72,7 +72,7 @@ Date: July 2021
 └── Positive (7+): 19,199 reviews (72.7%)
 ```
 
-## 🔍 What We Expected vs. What We Got
+## 🔍 What I Expected vs. What I Got
 
 ### Initial Expectations
 I expected to find a balanced distribution of positive, neutral, and negative reviews, similar to typical product review datasets (roughly 60% positive, 25% neutral, 15% negative).
